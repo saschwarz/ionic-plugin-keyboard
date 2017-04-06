@@ -20,6 +20,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.view.Display;
 import android.graphics.Point;
 import android.os.Build;
+import android.os.SystemClock;   // https://github.com/driftyco/ionic-plugin-keyboard/issues/235#issuecomment-282937622
 
 public class IonicKeyboard extends CordovaPlugin {
     private OnGlobalLayoutListener list;
@@ -71,6 +72,7 @@ public class IonicKeyboard extends CordovaPlugin {
                         int previousHeightDiff = 0;
                         @Override
                         public void onGlobalLayout() {
+                            SystemClock.sleep(300); 
                             Rect r = new Rect();
                             //r will be populated with the coordinates of your view that area still visible.
                             rootView.getWindowVisibleDisplayFrame(r);
